@@ -5,12 +5,25 @@
   "main": "dist/index.js",
   "repository": "git@github.com:0918nobita/rollup-plugin-elm2.git",
   "author": "0918nobita <nobita.0918@gmail.com>",
+  "keywords": [
+    "rollup",
+    "plugin",
+    "elm"
+  ],
   "license": "MIT",
   "private": true,
   "scripts": {
     "build": "rollup -c",
     "prepare": "yarn build"
   },
+  "files": [
+    "dist/index.d.ts",
+    "dist/index.js",
+    "LICENSE",
+    "package.json",
+    "yarn.lock"
+  ],
+  "types": "dist/index.d.ts",
   "devDependencies": {
     "@rollup/pluginutils": "^3.0.8",
     "@typescript-eslint/eslint-plugin": "^2.23.0",
