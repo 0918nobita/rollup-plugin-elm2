@@ -8,7 +8,7 @@ import {
     TransformResult,
 } from 'rollup';
 
-interface Options {
+export interface Elm2PluginOptions {
     include: string[];
     exclude: string[];
     compiler: {
@@ -17,7 +17,7 @@ interface Options {
     };
 }
 
-const defaultOptions: Options = {
+const defaultOptions: Elm2PluginOptions = {
     include: [],
     exclude: [],
     compiler: {
@@ -36,11 +36,11 @@ async function compile(filename, options): Promise<string> {
 }
 
 function wrapElmCode(code: string): string {
-    return `let output = {}; (function () { ${code} }).call(output); export default output.Elm;`;
+    return `const env = {}; (function () { ${code} }).call(env); export default env.Elm;`;
 }
 
-export default function elm2(opt: Options = defaultOptions): Plugin {
-    const result: Plugin = { name: 'elm2' };
+export default function elm2(opt = defaultOptions): Plugin {
+    const plugin: Plugin = { name: 'elm2' };
 
     const transformHook: TransformHook = async function(
         this: PluginContext,
@@ -53,14 +53,14 @@ export default function elm2(opt: Options = defaultOptions): Plugin {
         const dependencies: string[] = await elmCompiler.findAllDependencies(
             id
         );
-        const compiled: SourceDescription = {
+        const result: SourceDescription = {
             code: wrapElmCode(elmCode),
             map: { mappings: '' as const },
         };
         dependencies.forEach(this.addWatchFile);
-        return compiled;
+        return result;
     };
 
-    result.transform = transformHook;
-    return result;
+    plugin.transform = transformHook;
+    return plugin;
 }
