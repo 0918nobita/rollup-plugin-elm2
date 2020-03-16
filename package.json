@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-elm2",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Bundle Elm programs with Rollup",
   "main": "dist/index.js",
   "repository": "git@github.com:0918nobita/rollup-plugin-elm2.git",
