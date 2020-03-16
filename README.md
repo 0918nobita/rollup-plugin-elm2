@@ -13,22 +13,28 @@ const node = document.getElementById('app');
 const app = Elm.Main.init({ node });
 ```
 
+### rollup.config.js
+
 ```javascript
 import elm from 'rollup-plugin-elm2';
 
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
-    input: 'src/index.js',
-    plugins: [
-      elm({
-        exclude: 'elm-stuff/**',
-        compiler: {
-          optimize: production,
-          debug: !production,
-        },
-      }),
-    ],
+  input: 'src/index.js',
+  output: {
+    file: 'dist/bundle.js',
+    format: 'es',
+  },
+  plugins: [
+    elm({
+      exclude: 'elm-stuff/**',
+      compiler: {
+        optimize: production,
+        debug: !production,
+      },
+    }),
+  ],
 };
 ```
 
