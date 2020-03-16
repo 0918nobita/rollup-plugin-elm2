@@ -21,7 +21,8 @@
     "dist/index.js",
     "LICENSE",
     "package.json",
-    "yarn.lock"
+    "yarn.lock",
+    "README.md"
   ],
   "types": "dist/index.d.ts",
   "devDependencies": {
