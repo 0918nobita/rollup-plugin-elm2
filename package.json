@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-elm2",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Bundle Elm programs with Rollup",
   "main": "dist/index.js",
   "repository": "0918nobita/rollup-plugin-elm2",
