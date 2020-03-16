@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "description": "Bundle Elm programs with Rollup",
   "main": "dist/index.js",
-  "repository": "git@github.com:0918nobita/rollup-plugin-elm2.git",
+  "repository": "0918nobita/rollup-plugin-elm2",
   "author": "0918nobita <nobita.0918@gmail.com>",
   "keywords": [
     "rollup",
