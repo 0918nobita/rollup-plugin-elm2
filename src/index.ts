@@ -8,9 +8,12 @@ import {
     TransformResult,
 } from 'rollup';
 
-type FilterOptions = {
-    [K in 'include' | 'exclude']: Parameters<typeof createFilter>[0];
-};
+type FilterOptions = typeof createFilter extends (
+    include: infer A,
+    exclude: infer B
+) => any // eslint-disable-line @typescript-eslint/no-explicit-any
+    ? { include: A; exclude: B }
+    : never;
 
 export type Elm2PluginOptions = FilterOptions & {
     compiler: {
