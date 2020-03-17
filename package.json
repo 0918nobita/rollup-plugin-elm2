@@ -14,7 +14,8 @@
   "private": true,
   "scripts": {
     "build": "rollup -c",
-    "prepare": "yarn build"
+    "prepare": "yarn build",
+    "test": "jest"
   },
   "files": [
     "dist/index.d.ts",
@@ -27,16 +28,19 @@
   "types": "dist/index.d.ts",
   "devDependencies": {
     "@rollup/pluginutils": "3.0.8",
+    "@types/jest": "^25.1.4",
     "@typescript-eslint/eslint-plugin": "2.23.0",
     "@typescript-eslint/parser": "2.23.0",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.10.0",
     "eslint-plugin-prettier": "3.1.2",
     "eslint-plugin-simple-import-sort": "5.0.2",
+    "jest": "^25.1.0",
     "node-elm-compiler": "5.0.4",
     "prettier": "1.19.1",
     "rollup": "2.0.6",
     "rollup-plugin-typescript2": "0.26.0",
+    "ts-jest": "^25.2.1",
     "typescript": "3.8.3"
   },
   "peerDependencies": {
