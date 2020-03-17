@@ -16,7 +16,7 @@
     "prepare": "yarn build",
     "build": "rollup -c",
     "lint:js": "prettier --check ./**/*.js",
-    "lint:ts": "eslint ./**/*.ts",
+    "lint:ts": "eslint ./src/*.ts ./test/*.ts",
     "lint": "run-s lint:js lint:ts",
     "format:js": "prettier --write ./**/*.js",
     "format:ts": "yarn lint:ts --fix",
