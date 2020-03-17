@@ -8,14 +8,16 @@ import {
     TransformResult,
 } from 'rollup';
 
-export interface Elm2PluginOptions {
-    include: string[];
-    exclude: string[];
+type FilterOptions = {
+    [K in 'include' | 'exclude']: Parameters<typeof createFilter>[0];
+};
+
+export type Elm2PluginOptions = FilterOptions & {
     compiler: {
         debug: boolean;
         optimize: boolean;
     };
-}
+};
 
 const defaultOptions: Elm2PluginOptions = {
     include: [],
